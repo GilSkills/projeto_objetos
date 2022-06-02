@@ -35,8 +35,8 @@ void loop() {
   inches = (duration / 2) / 74;
   Serial.println(".....");
   if (inches < 20 || inches > 500) {
-  Serial.println("Intruder Detected!");
-  Serial.println("Sending text Notification...");
+  Serial.println("Intruso detectado!");
+  Serial.println("Enviando mensagem...");
 
   if (numRuns <= maxRuns) {
     Serial.println("Running SendSMS - Run #" + String(numRuns++));
@@ -52,11 +52,11 @@ void loop() {
     SendSMSChoreo.setAppKey(TEMBOO_APP_KEY);
     
     // Set Choreo inputs
-    SendSMSChoreo.addInput("AuthToken", "8f664f4ec3763ba1388f154fd43e24d6"); //  AUTH TOKEN 
-    SendSMSChoreo.addInput("To", "+15511971614551"); // cell number that your want the text to go to 
-    SendSMSChoreo.addInput("From", "+19785232843"); // Twilio phone number 
+    SendSMSChoreo.addInput("AuthToken", ""); //  AUTH TOKEN 
+    SendSMSChoreo.addInput("To", "+1"); // cell number that your want the text to go to 
+    SendSMSChoreo.addInput("From", "+1"); // Twilio phone number 
     SendSMSChoreo.addInput("Body", "Instruso Detectado!"); // Message
-    SendSMSChoreo.addInput("AccountSID", "AC6034aad4f78aab4e61823dae6cd3a14c"); // Account SID
+    SendSMSChoreo.addInput("AccountSID", ""); // Account SID
     
     // Identify the Choreo to run
     SendSMSChoreo.setChoreo("/Library/Twilio/SMSMessages/SendSMS");
@@ -71,10 +71,10 @@ void loop() {
     SendSMSChoreo.close();
   }
 
-  Serial.println("Waiting...");
+  Serial.println("Esperando...");
   delay(10000); // wait 10 seconds between SendSMS calls
   
-  Serial.println("Patrol Mode Initiated...");
+  Serial.println("Modo Patrulha iniciado...");
   
   }//end if statement 
   
