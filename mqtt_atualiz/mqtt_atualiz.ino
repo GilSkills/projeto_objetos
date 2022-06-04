@@ -107,7 +107,7 @@ void setup() {
   setup_wifi();
 
   mqtt_client.setServer(mqtt_server, mqtt_server_port); //configura a conexao com o broker MQTT
-  mqtt_client.setCallback(callback); //configura o recebimento de mensagens
+  
 }
 
 // ======
